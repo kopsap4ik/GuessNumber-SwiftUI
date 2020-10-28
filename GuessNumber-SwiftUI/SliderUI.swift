@@ -19,7 +19,7 @@ struct SliderUI: UIViewRepresentable {
         slider.maximumValue = 100
         slider.tintColor = .gray
         slider.value = Float(value)
-        slider.thumbTintColor = .init(red: 1, green: 0, blue: 0, alpha: CGFloat(alpha))
+        slider.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: CGFloat(alpha))
         slider.addTarget(
             context.coordinator,
             action: #selector(Coordinator.valueChanged ),
