@@ -37,8 +37,6 @@ struct SliderUI: UIViewRepresentable {
     func makeCoordinator() -> SliderUI.Coordinator {
             Coordinator(value: $value)
     }
-    
-//    typealias UIViewType = UISlider
 }
 
 // MARK:  - координатор для обратной передачи данных в SwiftUI
@@ -61,6 +59,6 @@ extension SliderUI{
 // MARK:  - PreviewProvider
 struct SliderUI_Previews: PreviewProvider {
     static var previews: some View {
-        SliderUI(value: .constant(50), alpha: 0.3)
+        SliderUI(value: .constant(50), alpha: 1.0)
     }
 }
