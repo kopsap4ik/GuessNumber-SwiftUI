@@ -19,7 +19,8 @@ struct SliderUI: UIViewRepresentable {
         slider.maximumValue = 100
         slider.tintColor = .gray
         slider.value = Float(value)
-        slider.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: CGFloat(alpha))
+        //будет менять прозрачность всего слайдера
+//        slider.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: CGFloat(alpha))
         slider.addTarget(
             context.coordinator,
             action: #selector(Coordinator.valueChanged ),
@@ -31,7 +32,10 @@ struct SliderUI: UIViewRepresentable {
     // читает значение слайдера из SwiftUI
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = Float(value)
-        uiView.alpha = CGFloat(alpha)
+//        uiView.alpha = CGFloat(alpha) //будет менять прозрачность всего слайдера
+        
+        // чтобы менять только прозрачность бегунка (кружок)
+        uiView.thumbTintColor = UIColor.red.withAlphaComponent(CGFloat(alpha))
     }
     
     func makeCoordinator() -> SliderUI.Coordinator {
